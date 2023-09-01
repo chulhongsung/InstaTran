@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+wandb
+artifacts
+*.sh
+*.pptx
+wandb*
+.vscode
+privacy
+*.npy
+sweep*
+*.pt
