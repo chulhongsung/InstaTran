@@ -11,7 +11,7 @@ cd ./src
 Download data from one of the following links and unpack it into './'.
 - [Han River Dataset](https://dacon.io/competitions/official/235949/data) (permission required)
 
-Or you can use US lakes dataset
+Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
 
 ## Train InstaTran
 
