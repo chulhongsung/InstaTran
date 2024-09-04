@@ -7,11 +7,11 @@
 ### Using conda 
 `conda create -n instatran python=3.9.16`
 
+### Change directory
+`cd instatran`
 
-```
-cd ./src
-```
-
+### 
+` pip install -r requirements.txt`
 
 ## Dataset
 
@@ -22,6 +22,11 @@ Download data from one of the following links and unpack it into './'.
 Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
 
 ## Train InstaTran
+
+```
+cd ./src
+```
+
 
 ```
 python main.py 
