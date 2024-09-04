@@ -21,12 +21,31 @@ Download data from one of the following links and unpack it into './'.
 
 Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
 
-## Train InstaTran
 
+# With US lakes dataset:
 ```
 cd ./src
 ```
 
+## Train InstaTran
+
+```
+python us_lakes_instatran.py
+```
+
+## Train neural-net-based benchmark models
+```
+python us_lakes_mqrnn.py
+python us_lakes_deepar.py
+python us_lakes_ding.py
+python us_lakes_deng.py
+python us_lakes_tft.py
+```
+
+
+# If you download `Han River Dataset`:
+
+## Train InstaTran
 
 ```
 python main.py 
@@ -47,7 +66,7 @@ python main.py
 ```
 
 
-## Train Benchmark models
+## Train neural-net-based benchmark models
 
 ```
 python benchmark.py --model DeepAR --n_layer 3 
@@ -58,11 +77,15 @@ python benchmark.py --model DeepAR --n_layer 3
 - `model` : benchmark models (DeepAR, MQRnn, TFT)
 - `n_layer` : the number of LSTM layers
 
-### Saved Benchmark Models
+### Saved benchmark Models
 
 ```
 /assets/deepar.pth
 /assets/mqrnn.pth
 /assets/tft.pth
 ```
+
+## Train classical benchmark models
+
+
 
