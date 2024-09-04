@@ -42,6 +42,23 @@ python us_lakes_deng.py
 python us_lakes_tft.py
 ```
 
+## Train neural-net-based benchmark models
+```
+python us_lakes_mqrnn.py
+python us_lakes_deepar.py
+python us_lakes_ding.py
+python us_lakes_deng.py
+python us_lakes_tft.py
+```
+
+## Train classical benchmark models
+```
+python us_lakes_ml_benchmark.py
+```
+Or
+
+Open `us_lakes_ml_benchmark.ipynb`
+
 
 # If you download `Han River Dataset`:
 
