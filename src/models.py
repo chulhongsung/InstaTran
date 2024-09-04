@@ -224,3 +224,74 @@ class InstaTran(nn.Module):
         output = self.qo(tfl_output) # (batch_size, tau, num_target, quantile)
         
         return output, ssa_weight1, ssa_weight2, tsa_weight, decoder_attention, feature_importance1, future_importance # (batch_size, tau, num_target, quantile), (batch_size, seq_len, num_cv, num_cv), (batch_size, seq_len, num_cv, num_cv), (batch_size, seq_len, seq_len), (batch_size, seq_len+tau, seq_len+tau)
+
+
+class STALSTM(nn.Module):
+    """ 
+        Ding et al., 2020 (Neurocomputing)
+    """
+    def __init__(self, d_model, num_feature, tau, num_quantiles):
+        super(STALSTM, self).__init__()
+        self.d_model = d_model
+        self.sa = SpatialAttention(num_feature)
+        self.lstm = nn.LSTM(input_size=num_feature, hidden_size=d_model, batch_first=True)
+        self.ta = TemporalAttention(d_model)
+        self.qol = nn.ModuleList([nn.Linear(d_model, tau) for _ in range(num_quantiles)])
+
+    def forward(self, x):
+        x_, alpha = self.sa(x)
+        h, (_, _) = self.lstm(x_)
+        h_, beta = self.ta(h)
+        
+        total_output_list = []
+        
+        for _,l in enumerate(self.qol):
+            tmp_quantile_output = l(h_)
+            total_output_list.append(tmp_quantile_output.unsqueeze(-1))
+        
+        return torch.cat(total_output_list, dim=-1).unsqueeze(-2), alpha, beta
+    
+class HSDSTM(nn.Module):
+    """Deng et al, 2023 (Stochastic Environmental Research and Risk Assessment)
+    """
+    def __init__(self, 
+                 adj,
+                 input_size,
+                 seq_len,
+                 num_channels,
+                 node_dim,
+                 dropout,
+                 num_levels,
+                 tau,
+                 num_quantiles
+                 ):
+        super(HSDSTM, self).__init__()
+        self.node_dim = node_dim
+        self.dropout = dropout
+        self.adj = adj
+        
+        self.levels = nn.ModuleList([nn.Sequential(
+            GTCN(input_size=input_size, seq_len=seq_len, num_channels=num_channels),
+            GraphFusion(adj=self.adj, node_dim=node_dim, in_feature=node_dim, out_feature=node_dim, dropout=dropout)
+        ) for _ in range(num_levels)])
+        
+        self.qol = nn.ModuleList([nn.Linear(seq_len, tau) for _ in range(num_quantiles)])
+        
+    def forward(self, x):
+        output_list = []
+        
+        for _, l in enumerate(self.levels):
+            h = l(x)
+            h = h + x.transpose(2, 1).unsqueeze(-1)
+            output_list.append(h)
+            x = x.squeeze()
+        
+        fusion = torch.cat(output_list, dim=-1).mean(dim=-2).mean(dim=-1)
+        
+        total_output_list = []
+        
+        for _,l in enumerate(self.qol):
+            tmp_quantile_output = l(fusion)
+            total_output_list.append(tmp_quantile_output.unsqueeze(-1))
+        
+        return torch.cat(total_output_list, dim=-1).unsqueeze(-2)
