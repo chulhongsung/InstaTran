@@ -57,7 +57,7 @@ python us_lakes_ml_benchmark.py
 ```
 Or
 
-Open `us_lakes_ml_benchmark.ipynb`
+use jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
 # If you download `Han River Dataset`:
