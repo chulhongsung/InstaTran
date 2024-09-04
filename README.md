@@ -82,7 +82,6 @@ python main.py
 /assets/instatran.pth
 ```
 
-
 ## Train neural-net-based benchmark models
 
 ```
@@ -104,5 +103,27 @@ python benchmark.py --model DeepAR --n_layer 3
 
 ## Train classical benchmark models
 
+Use jupyter notebook `classic_benchmark.ipynb`
 
+## Distribution-shift Scenario
+
+### Train InstaTran
+```
+python dist_shift.py --year 2016
+```
+
+### Train DeepAR, MQRnn, TFT 
+
+```
+python dist_shift2.py --model DeepAR --year 2016
+python dist_shift2.py --model MQRnn --year 2016
+python dist_shift2.py --model TFT --year 2016
+```
+
+### Train STA-LSTM, HSDSTM
+
+```
+python dist_shift3.py --model Ding --year 2016
+python dist_shift3.py --model Deng --year 2016
+```
 
