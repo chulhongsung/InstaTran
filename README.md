@@ -22,7 +22,7 @@ Download data from one of the following links and unpack it into './'.
 Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
 
 
-# With US lakes dataset:
+## With US lakes dataset:
 ```
 cd ./src
 ```
@@ -60,7 +60,7 @@ Or
 use jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
-# If you download `Han River Dataset`:
+## If you download `Han River Dataset`:
 
 ## Train InstaTran
 
