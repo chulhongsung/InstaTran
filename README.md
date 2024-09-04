@@ -1,4 +1,12 @@
-# instatran_IJF
+# InstaTran
+
+## Requirements
+
+`Python 3.9.16`
+
+### Using conda 
+`conda create -n instatran python=3.9.16`
+
 
 ```
 cd ./src
