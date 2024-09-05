@@ -1,5 +1,6 @@
 # InstaTran
 
+This repository contains the pre-release version of the dataset and Python code used in the paper "Interpretable Water Level Forecaster with Spatiotemporal Causal Attention Mechanisms". For detailed information about our model and implementation, please refer to the paper.
 > *S. Hong, Y. Choi, and J-J. Jeon*. Interpretable Water Level Forecaster with Spatiotemporal Causal Attention Mechanisms, preprint.
 
 ## Requirements
