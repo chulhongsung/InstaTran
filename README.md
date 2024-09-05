@@ -1,6 +1,6 @@
 # InstaTran
 
-> *S. Hong, Y. Choi, and J-J. Jeon*. Interpretable Water Level Forecaster with Spatiotemporal Causal Attention Mechanisms.
+> *S. Hong, Y. Choi, and J-J. Jeon*. Interpretable Water Level Forecaster with Spatiotemporal Causal Attention Mechanisms, preprint.
 
 ## Requirements
 
