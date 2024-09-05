@@ -8,13 +8,17 @@ This repository contains the pre-release version of the dataset and Python code 
 `Python 3.9.16`
 
 ### Using conda 
-`conda create -n instatran python=3.9.16`
+`conda create -n {env_name} python=3.9.16`
+`conda activate {env_name}`
+
+### Clone repository
+`git clone https://github.com/chulhongsung/InstaTran.git`
 
 ### Change directory
-`cd instatran`
+`cd InstaTran`
 
 ### 
-` pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 ## Dataset
 
