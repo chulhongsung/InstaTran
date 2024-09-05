@@ -32,12 +32,12 @@ Or you can use US lakes dataset in `./data/us_lakes/` without permission.
 Run jupyter notebook `preprocess.ipynb`
 
 ## With US lakes dataset:
+Change directory 
 ```
-cd ./src
+cd src
 ```
 
 ## Train and evaluate InstaTran
-
 ```
 python us_lakes_instatran.py
 ```
