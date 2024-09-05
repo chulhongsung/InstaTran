@@ -133,3 +133,6 @@ python dist_shift3.py --model Ding --year 2016
 python dist_shift3.py --model Deng --year 2016
 ```
 
+## Evaluation
+
+Use jupyter notebook `eval.ipynb` and `eval_ds.ipynb`
