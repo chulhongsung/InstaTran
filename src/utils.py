@@ -233,3 +233,4 @@ def plot_results(true, preds, dark=True):
     ax_fig = ax1.get_figure()    
     # ax_fig.savefig('/Users/chulhongsung/Desktop/lab/working_paper/ts/water_level_forecasting/assets/results/site1.jpg', bbox_inches = 'tight')
     plt.show()
+    
