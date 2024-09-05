@@ -46,8 +46,8 @@ python us_lakes_tft.py
 ```
 python us_lakes_mqrnn.py
 python us_lakes_deepar.py
-python us_lakes_ding.py
-python us_lakes_deng.py
+python us_lakes_stalstm.py
+python us_lakes_hsdstm.py
 python us_lakes_tft.py
 ```
 
