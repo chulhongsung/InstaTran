@@ -137,3 +137,5 @@ python dist_shift3.py --model HSDSTM --year 2016
 ## Evaluation
 
 Run jupyter notebook `eval_ds.ipynb`
+
+### Expected output
