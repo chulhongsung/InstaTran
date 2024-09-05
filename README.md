@@ -24,20 +24,20 @@ Download data from one of the following links and unpack it into './data/raw'.
 Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
 
 ### Preprocess of Han River Dataset  
-Use jupyter notebook `preprocess.ipynb`
+Run jupyter notebook `preprocess.ipynb`
 
 ## With US lakes dataset:
 ```
 cd ./src
 ```
 
-## Train InstaTran
+## Train and evaluate InstaTran
 
 ```
 python us_lakes_instatran.py
 ```
 
-## Train neural-net-based benchmark models
+## Train and evaluate neural-net-based benchmark models
 ```
 python us_lakes_mqrnn.py
 python us_lakes_deepar.py
@@ -46,16 +46,7 @@ python us_lakes_deng.py
 python us_lakes_tft.py
 ```
 
-## Train neural-net-based benchmark models
-```
-python us_lakes_mqrnn.py
-python us_lakes_deepar.py
-python us_lakes_stalstm.py
-python us_lakes_hsdstm.py
-python us_lakes_tft.py
-```
-
-## Train classical benchmark models
+## Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
 ```
 python us_lakes_ml_benchmark.py
 ```
@@ -64,7 +55,9 @@ Or
 use jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
+
 ## If you download `Han River Dataset`:
+Note: This training process can be time-consuming. To save the time, the trained model  are saved in the assets/{model_name}.pth.
 
 ## Train InstaTran
 
@@ -116,6 +109,8 @@ Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
 Use jupyter notebook `classic_benchmark.ipynb`
 
 ## Distribution-shift Scenario
+
+For example, if you train models with dataset in 2016, the parameter `year` is set as `2016`
 
 ### Train InstaTran
 ```
