@@ -9,6 +9,7 @@ This repository contains the pre-release version of the dataset and Python code 
 
 ### Using conda 
 `conda create -n {env_name} python=3.9.16`
+
 `conda activate {env_name}`
 
 ### Clone repository
