@@ -76,10 +76,10 @@ python main.py
 - `epochs` : the number of epochs
 - `lr` : learning rate
 
-### Saved InstaTran
+### Saved InstaTran directory
 
 ```
-/assets/instatran.pth
+/assets/InstaTran.pth
 ```
 
 ## Train neural-net-based benchmark models
@@ -93,12 +93,18 @@ python benchmark.py --model DeepAR --n_layer 3
 - `model` : benchmark models (DeepAR, MQRnn, TFT)
 - `n_layer` : the number of LSTM layers
 
+## Train domain-specific benchmark models
+
+Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
+
 ### Saved benchmark Models
 
 ```
-/assets/deepar.pth
-/assets/mqrnn.pth
-/assets/tft.pth
+/assets/DeepAR.pth
+/assets/MQRnn.pth
+/assets/TFT.pth
+/assets/HSDSTM.pth
+/assets/STALSTM.pth
 ```
 
 ## Train classical benchmark models
