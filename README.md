@@ -38,27 +38,18 @@ cd src
 ```
 
 ## Train and evaluate InstaTran
-```
-python us_lakes_instatran.py
-```
+
+Run jupyter notebook `us_lakes_InstaTran.ipynb`
 
 ## Train and evaluate neural-net-based benchmark models
-```
-python us_lakes_mqrnn.py
-python us_lakes_deepar.py
-python us_lakes_ding.py
-python us_lakes_deng.py
-python us_lakes_tft.py
-```
+
+Run jupyter notebook `us_lakes_{model}.ipynb`
+- `d_emb` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
+
 
 ## Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
-```
-python us_lakes_ml_benchmark.py
-```
-Or
 
-use jupyter notebook `us_lakes_ml_benchmark.ipynb`
-
+Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
 ## If you download `Han River Dataset`:
