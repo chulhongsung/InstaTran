@@ -39,8 +39,6 @@ import argparse
 
 args = parser.parse_args()
 
-from datetime import datetime
-now = datetime.now().strftime("%y-%m%d-%H%M")
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -194,8 +192,8 @@ def main():
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = model
                 
-    torch.save(model.state_dict(), '../assets/weights/ds_{}_{}_{}_final.pth'.format(args.model, now, args.year))
-    torch.save(best_eval_model.state_dict(), '../assets/weights/ds_{}_{}_{}_best.pth'.format(args.model, now, args.year))
+    torch.save(model.state_dict(), '../assets/ds_{}_{}_final.pth'.format(args.model, args.year))
+    torch.save(best_eval_model.state_dict(), '../assets/ds_{}_{}_best.pth'.format(args.model, args.year))
     
 if __name__ == '__main__':
     main()

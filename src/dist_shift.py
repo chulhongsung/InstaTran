@@ -40,8 +40,6 @@ parser.add_argument('--model', required=False, default="STT2", choices=("STT", "
 parser.add_argument('--year', required=False, default="2016", choices=("2016", "2017", "2018", "2019", "2020", "2021"), type=str)
 args = parser.parse_args()
 
-from datetime import datetime
-now = datetime.now().strftime("%y-%m%d-%H%M")
 
 spatial_masking = args.sps == 'True'
 parallel = args.parallel == 'True'
@@ -161,7 +159,7 @@ def main():
     import matplotlib.pyplot as plt
     
     if parallel:
-        stt = SpatialTemporalParallelTransformer(
+        instatran = SpatialTemporalParallelTransformer(
             d_model=args.d_model,
             d_embedding=args.d_emb,
             cate_dims=[16, 32, 24],
@@ -177,7 +175,7 @@ def main():
     
     elif novel:
         
-        stt = SpatialTemporalTransformer2(
+        instatran = SpatialTemporalTransformer2(
             d_model=args.d_model,
             d_embedding=args.d_emb,
             cate_dims=[16, 32, 24],
@@ -192,7 +190,7 @@ def main():
         ) 
     
     else:
-        stt = SpatialTemporalTransformer(
+        instatran = SpatialTemporalTransformer(
             d_model=args.d_model,
             d_embedding=args.d_emb,
             cate_dims=[16, 32, 24],
@@ -206,19 +204,19 @@ def main():
             device=device
         )
         
-    stt.to(device)
+    instatran.to(device)
         
-    optimizer = optim.Adam(stt.parameters(), lr=args.lr)
+    optimizer = optim.Adam(instatran.parameters(), lr=args.lr)
     
     tmp_val_loss = np.infty
        
     for epoch in range(args.epochs):        
 
-        train_loss = train(stt, train_loader, qr, optimizer, device)
+        train_loss = train(instatran, train_loader, qr, optimizer, device)
         
         if epoch % 20 == 0:
             
-            eval_loss, _, ssa_weight2, tsa_weight, dec_weights = evaluate(stt, test_loader, qr, device)
+            eval_loss, _, ssa_weight2, tsa_weight, dec_weights = evaluate(instatran, test_loader, qr, device)
     
             fig1, ax1 = plt.subplots()
             ax1.set_ylabel("Variables")
@@ -243,15 +241,15 @@ def main():
             
             if eval_loss.cpu().item() < tmp_val_loss:
                 tmp_val_loss = eval_loss.cpu().item()
-                best_eval_model = stt
+                best_eval_model = instatran
             
             plt.clf()
         
         plt.close()
         # scheduler.step()
        
-    torch.save(stt.state_dict(), '../assets/weights/ds_stt_{}_{}_final.pth'.format(now, args.year))        
-    torch.save(best_eval_model.state_dict(), '../assets/weights/ds_stt_{}_{}_best.pth'.format(now, args.year))
+    torch.save(instatran.state_dict(), '../assets/ds_instatran_{}_final.pth'.format(args.year))        
+    torch.save(best_eval_model.state_dict(), '../assets/ds_instatran_{}_best.pth'.format(args.year))
     
 if __name__ == '__main__':
     main()

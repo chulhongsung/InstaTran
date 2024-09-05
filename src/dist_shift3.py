@@ -32,7 +32,7 @@ parser.add_argument('--seed', required=False, default=1, type=int)
 parser.add_argument('--dr', required=False, default=0.1, type=float)
 parser.add_argument('--tau', required=False, default=12, type=int)
 parser.add_argument('--seq_len', required=False, default=48, type=int)
-parser.add_argument('--model', required=False, default="Deng", choices=("Ding", "Deng"), type=str)
+parser.add_argument('--model', required=False, default="Deng", choices=("STALSTM", "HSDSTM"), type=str)
 parser.add_argument('--year', required=False, default="2016", choices=("2016", "2017", "2018", "2019", "2020", "2021"), type=str)
 
 args = parser.parse_args()
@@ -108,7 +108,7 @@ def main():
     
     from torch.utils.data import DataLoader, TensorDataset 
         
-    if args.model == "Ding":
+    if args.model == "STALSTM":
         model = STALSTM(48, 16, 12, 5)
         device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         model.to(device)
@@ -124,7 +124,7 @@ def main():
         train_loader = DataLoader(train_dataset, shuffle=True, batch_size=args.bs)
         test_loader = DataLoader(test_dataset, shuffle=True, batch_size=args.bs)
 
-    elif args.model == "Deng":
+    elif args.model == "HSDSTM":
         adj = torch.tensor([[1.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
                             [0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
                             [0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0],
@@ -252,8 +252,8 @@ def main():
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = model
        
-    torch.save(model.state_dict(), '../assets/weights/ds_{}_{}_{}_final.pth'.format(args.model, now, args.year))
-    torch.save(best_eval_model.state_dict(), '../assets/weights/ds_{}_{}_{}_best.pth'.format(args.model, now, args.year))
+    torch.save(model.state_dict(), '../assets/ds_{}_{}_final.pth'.format(args.model, args.year))
+    torch.save(best_eval_model.state_dict(), '../assets/ds_{}_{}_best.pth'.format(args.model, args.year))
 
     
 if __name__ == '__main__':
