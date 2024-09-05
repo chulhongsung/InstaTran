@@ -18,7 +18,7 @@
 ## Dataset
 
 ### Download
-Download data from one of the following links and unpack it into './data/raw'.
+Download data from one of the following links and unpack it into `./data/raw`.
 - [Han River Dataset](https://dacon.io/competitions/official/235949/data) (permission required)
 
 Or you can use US lakes dataset in `./data/us_lakes/` without downloading.
@@ -57,7 +57,7 @@ use jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
 ## If you download `Han River Dataset`:
-Note: This training process can be time-consuming. To save the time, the trained model  are saved in the assets/{model_name}.pth.
+Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
 
 ## Train InstaTran
 
@@ -112,8 +112,8 @@ Run jupyter notebook `eval.ipynb`
 
 
 ## Distribution-shift Scenario
-Note: This training process can be time-consuming. To save the time, the trained model are saved in the assets/ds/ds_{model_name}_{year}.pth.
-- `model` : benchmark models (DeepAR, MQRnn, TFT, STALSTM, HSDSTM, instatran)
+Note: This training process can be time-consuming. To save the time, the trained model are saved in the `/assets/ds/ds_{model}_{year}.pth`.
+- `model` : models (DeepAR, MQRnn, TFT, STALSTM, HSDSTM, instatran)
 - `n_layer` : the number of LSTM layers
 
 
