@@ -127,8 +127,8 @@ python dist_shift2.py --model TFT --year 2016
 ### Train STA-LSTM, HSDSTM
 
 ```
-python dist_shift3.py --model Ding --year 2016
-python dist_shift3.py --model Deng --year 2016
+python dist_shift3.py --model STALSTM --year 2016
+python dist_shift3.py --model HSDSTM --year 2016
 ```
 
 ## Evaluation
