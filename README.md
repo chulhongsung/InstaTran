@@ -98,11 +98,7 @@ Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
 ### Saved benchmark Models
 
 ```
-/assets/DeepAR.pth
-/assets/MQRnn.pth
-/assets/TFT.pth
-/assets/HSDSTM.pth
-/assets/STALSTM.pth
+/assets/{model}.pth
 ```
 
 ## Train classical benchmark models
