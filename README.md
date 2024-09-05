@@ -105,10 +105,17 @@ Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
 ```
 
 ## Train classical benchmark models
+Run jupyter notebook `classic_benchmark.ipynb`
 
-Use jupyter notebook `classic_benchmark.ipynb`
+## Evaluate 
+Run jupyter notebook `eval.ipynb`
+
 
 ## Distribution-shift Scenario
+Note: This training process can be time-consuming. To save the time, the trained model are saved in the assets/ds/ds_{model_name}_{year}.pth.
+- `model` : benchmark models (DeepAR, MQRnn, TFT, STALSTM, HSDSTM, instatran)
+- `n_layer` : the number of LSTM layers
+
 
 For example, if you train models with dataset in 2016, the parameter `year` is set as `2016`
 
@@ -134,4 +141,4 @@ python dist_shift3.py --model Deng --year 2016
 
 ## Evaluation
 
-Use jupyter notebook `eval.ipynb` and `eval_ds.ipynb`
+Run jupyter notebook `eval_ds.ipynb`
