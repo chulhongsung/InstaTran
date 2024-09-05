@@ -46,7 +46,7 @@ Run jupyter notebook `us_lakes_InstaTran.ipynb`
 ## Train and evaluate neural-net-based benchmark models
 
 Run jupyter notebook `us_lakes_{model}.ipynb`
-- `d_emb` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
+- `model` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
 
 
 ## Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
