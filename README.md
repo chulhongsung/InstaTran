@@ -133,6 +133,10 @@ python dist_shift3.py --model STALSTM --year 2016
 python dist_shift3.py --model HSDSTM --year 2016
 ```
 
+### Train and evaluate classical benchmark models
+
+Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
+
 ## Evaluation
 
 Run jupyter notebook `eval_ds.ipynb`
