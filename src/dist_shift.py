@@ -248,8 +248,8 @@ def main():
         plt.close()
         # scheduler.step()
        
-    torch.save(instatran.state_dict(), '../assets/ds_InstaTran_{}_final.pth'.format(args.year))        
-    torch.save(best_eval_model.state_dict(), '../assets/ds_InstaTran_{}_best.pth'.format(args.year))
+    torch.save(instatran.state_dict(), '../assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
+    torch.save(best_eval_model.state_dict(), '../assets/ds/ds_InstaTran_{}_best.pth'.format(args.year))
     
 if __name__ == '__main__':
     main()
