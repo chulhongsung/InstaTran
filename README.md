@@ -24,7 +24,7 @@ This repository contains the pre-release version of the dataset and Python code 
 ## Folders
 `src`: includes source codes
 
-`data/raw`: a directory for downloading of Han River datasets (water_data, rf_data)
+`data/raw`: a directory where to downlaod and save the Han River datasets (water_data, rf_data)
 
 `data/us_lakes`: includes US lakes datasets
 
