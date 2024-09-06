@@ -34,16 +34,9 @@ parser.add_argument('--d_model', required=False, default=20, type=int)
 parser.add_argument('--dr', required=False, default=0.1, type=float)
 parser.add_argument('--tau', required=False, default=12, type=int)
 parser.add_argument('--seq_len', required=False, default=48, type=int)
-parser.add_argument('--sps', required=False, default="True", choices=("True", "False"), type=str)
-parser.add_argument('--parallel', required=False, default="False", choices=("True", "False"), type=str)
-parser.add_argument('--model', required=False, default="STT2", choices=("STT", "STT2"), type=str)
 parser.add_argument('--year', required=False, default="2016", choices=("2016", "2017", "2018", "2019", "2020", "2021"), type=str)
 args = parser.parse_args()
 
-
-spatial_masking = args.sps == 'True'
-parallel = args.parallel == 'True'
-novel = args.model == 'STT2'
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -109,18 +102,18 @@ def main():
     
     num_targets = 1
     
-    config = {
-        'seed': args.seed,
-        'bs': args.bs,
-        'tau': args.tau,
-        'seq_len': args.seq_len,
-        'epochs': args.epochs,
-        'lr': args.lr,
-        'd_model': args.d_model,
-        'd_emb': args.d_emb,
-        'dr': args.dr,
-        'num_targets': num_targets
-    }
+    # config = {
+    #     'seed': args.seed,
+    #     'bs': args.bs,
+    #     'tau': args.tau,
+    #     'seq_len': args.seq_len,
+    #     'epochs': args.epochs,
+    #     'lr': args.lr,
+    #     'd_model': args.d_model,
+    #     'd_emb': args.d_emb,
+    #     'dr': args.dr,
+    #     'num_targets': num_targets
+    # }
     
     from torch.utils.data import DataLoader, TensorDataset #IterableDataset
 
@@ -135,74 +128,41 @@ def main():
     
     qr = QuantileRisk(args.tau, quanilte_levels, num_targets, device)
     
-    if spatial_masking:
-        sps = torch.tensor([ [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
-                            [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
-                            [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]]
-                        ).float()
-    else:
-        sps = None
+
+    sps = torch.tensor([ [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 
+                        [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+                        [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]]
+                    ).float()
+
     
     import matplotlib.pyplot as plt
     
-    if parallel:
-        instatran = SpatialTemporalParallelTransformer(
-            d_model=args.d_model,
-            d_embedding=args.d_emb,
-            cate_dims=[16, 32, 24],
-            spatial_structure=sps,
-            num_cv=16,
-            seq_len=args.seq_len,
-            num_targets=num_targets,
-            tau=args.tau,
-            quantile=quanilte_levels,
-            dr=args.dr,
-            device=device
-        )
-    
-    elif novel:
-        
-        instatran = InstaTran(
-            d_model=args.d_model,
-            d_embedding=args.d_emb,
-            cate_dims=[16, 32, 24],
-            spatial_structure=sps,
-            num_cv=16,
-            seq_len=args.seq_len,
-            num_targets=num_targets,
-            tau=args.tau,
-            quantile=quanilte_levels,
-            dr=args.dr,
-            device=device
-        ) 
-    
-    else:
-        instatran = SpatialTemporalTransformer(
-            d_model=args.d_model,
-            d_embedding=args.d_emb,
-            cate_dims=[16, 32, 24],
-            spatial_structure=sps,
-            num_cv=16,
-            seq_len=args.seq_len,
-            num_targets=num_targets,
-            tau=args.tau,
-            quantile=quanilte_levels,
-            dr=args.dr,
-            device=device
-        )
+    instatran = InstaTran(
+        d_model=args.d_model,
+        d_embedding=args.d_emb,
+        cate_dims=[16, 32, 24],
+        spatial_structure=sps,
+        num_cv=16,
+        seq_len=args.seq_len,
+        num_targets=num_targets,
+        tau=args.tau,
+        quantile=quanilte_levels,
+        dr=args.dr,
+        device=device
+    ) 
         
     instatran.to(device)
         
@@ -218,34 +178,34 @@ def main():
             
             eval_loss, _, ssa_weight2, tsa_weight, dec_weights = evaluate(instatran, test_loader, qr, device)
     
-            fig1, ax1 = plt.subplots()
-            ax1.set_ylabel("Variables")
-            ax1.set_xlabel("Variables")
-            _ = ax1.matshow(ssa_weight2.squeeze().detach().cpu().numpy()) # cmap=cmap1
-            plt.colorbar(_)
-            fig1.tight_layout()
+            # fig1, ax1 = plt.subplots()
+            # ax1.set_ylabel("Variables")
+            # ax1.set_xlabel("Variables")
+            # _ = ax1.matshow(ssa_weight2.squeeze().detach().cpu().numpy()) # cmap=cmap1
+            # plt.colorbar(_)
+            # fig1.tight_layout()
 
-            fig2, ax2 = plt.subplots()
-            ax2.set_ylabel("Time Steps")
-            ax2.set_xlabel("Time Steps")
-            _ = ax2.matshow(tsa_weight.squeeze().detach().cpu().numpy())
-            plt.colorbar(_)
-            fig2.tight_layout()
+            # fig2, ax2 = plt.subplots()
+            # ax2.set_ylabel("Time Steps")
+            # ax2.set_xlabel("Time Steps")
+            # _ = ax2.matshow(tsa_weight.squeeze().detach().cpu().numpy())
+            # plt.colorbar(_)
+            # fig2.tight_layout()
             
-            fig3, ax3 = plt.subplots()
-            ax3.set_ylabel("Time Steps")
-            ax3.set_xlabel("Time Steps")
-            _ = ax3.matshow(dec_weights.squeeze().detach().cpu().numpy())
-            plt.colorbar(_)
-            fig3.tight_layout()
+            # fig3, ax3 = plt.subplots()
+            # ax3.set_ylabel("Time Steps")
+            # ax3.set_xlabel("Time Steps")
+            # _ = ax3.matshow(dec_weights.squeeze().detach().cpu().numpy())
+            # plt.colorbar(_)
+            # fig3.tight_layout()
             
             if eval_loss.cpu().item() < tmp_val_loss:
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = instatran
             
-            plt.clf()
+            # plt.clf()
         
-        plt.close()
+        # plt.close()
         # scheduler.step()
        
     torch.save(instatran.state_dict(), './assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
