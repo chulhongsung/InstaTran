@@ -159,7 +159,7 @@ def main():
 
         train(model, train_loader, criterion, optimizer, device)
     
-    torch.save(model.state_dict(), '../assets/{}.pth'.format(args.model))     
+    torch.save(model.state_dict(), './assets/{}.pth'.format(args.model))     
     
 if __name__ == '__main__':
     main()

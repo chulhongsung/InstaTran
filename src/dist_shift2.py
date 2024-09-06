@@ -93,9 +93,9 @@ def evaluate(model, loader, criterion, device):
     
 def main():
     
-    df_train_total = pd.read_csv("../data/df_train_total_ds_{}.csv".format(args.year))
-    df_test_total = pd.read_csv("../data/df_test_total_ds_{}.csv".format(args.year))
-    df_merged = pd.read_csv("../data/df_merged_ds_{}.csv".format(args.year))
+    df_train_total = pd.read_csv("./data/df_train_total_ds_{}.csv".format(args.year))
+    df_test_total = pd.read_csv("./data/df_test_total_ds_{}.csv".format(args.year))
+    df_merged = pd.read_csv("./data/df_merged_ds_{}.csv".format(args.year))
     
     train_conti_input, train_cate_input, train_future_input, train_label = generate_ts_data(df_train_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
     test_conti_input, test_cate_input, test_future_input, test_label = generate_ts_data(df_test_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
@@ -192,8 +192,8 @@ def main():
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = model
                 
-    torch.save(model.state_dict(), '../assets/ds/ds_{}_{}_final.pth'.format(args.model, args.year))
-    torch.save(best_eval_model.state_dict(), '../assets/ds/ds_{}_{}_best.pth'.format(args.model, args.year))
+    torch.save(model.state_dict(), './assets/ds/ds_{}_{}_final.pth'.format(args.model, args.year))
+    torch.save(best_eval_model.state_dict(), './assets/ds/ds_{}_{}_best.pth'.format(args.model, args.year))
     
 if __name__ == '__main__':
     main()

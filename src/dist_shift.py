@@ -20,7 +20,7 @@ os.chdir(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
 from utils import *
 from layers import *
-from models import SpatialTemporalTransformer, SpatialTemporalTransformer2, SpatialTemporalParallelTransformer
+from models import SpatialTemporalTransformer, InstaTran, SpatialTemporalParallelTransformer
 
 import argparse
 
@@ -98,9 +98,9 @@ def evaluate(model, loader, criterion, device):
     
 def main():
 
-    df_train_total = pd.read_csv("../data/df_train_total_ds_{}.csv".format(args.year))
-    df_test_total = pd.read_csv("../data/df_test_total_ds_{}.csv".format(args.year))
-    df_merged = pd.read_csv("../data/df_merged_ds_{}.csv".format(args.year))
+    df_train_total = pd.read_csv("./data/df_train_total_ds_{}.csv".format(args.year))
+    df_test_total = pd.read_csv("./data/df_test_total_ds_{}.csv".format(args.year))
+    df_merged = pd.read_csv("./data/df_merged_ds_{}.csv".format(args.year))
     
     train_conti_input, train_cate_input, train_future_input, train_label = generate_ts_data(df_train_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
     test_conti_input, test_cate_input, test_future_input, test_label = generate_ts_data(df_test_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
@@ -175,7 +175,7 @@ def main():
     
     elif novel:
         
-        instatran = SpatialTemporalTransformer2(
+        instatran = InstaTran(
             d_model=args.d_model,
             d_embedding=args.d_emb,
             cate_dims=[16, 32, 24],
@@ -248,8 +248,8 @@ def main():
         plt.close()
         # scheduler.step()
        
-    torch.save(instatran.state_dict(), '../assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
-    torch.save(best_eval_model.state_dict(), '../assets/ds/ds_InstaTran_{}_best.pth'.format(args.year))
+    torch.save(instatran.state_dict(), './assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
+    torch.save(best_eval_model.state_dict(), './assets/ds/ds_InstaTran_{}_best.pth'.format(args.year))
     
 if __name__ == '__main__':
     main()

@@ -151,7 +151,7 @@ def main():
 
         _ = train(instatran, train_loader, qr, optimizer, device)
 
-    torch.save(instatran.state_dict(), '../assets/InstaTran.pth')        
+    torch.save(instatran.state_dict(), './assets/InstaTran.pth')        
 
 if __name__ == '__main__':
     main()

@@ -87,9 +87,9 @@ def evaluate(model, loader, criterion, device):
         return sum(qr_loss)/len(qr_loss)
     
 def main():
-    df_train_total = pd.read_csv("../data/df_train_total_ds_{}.csv".format(args.year))
-    df_test_total = pd.read_csv("../data/df_test_total_ds_{}.csv".format(args.year))
-    df_merged = pd.read_csv("../data/df_merged_ds_{}.csv".format(args.year))
+    df_train_total = pd.read_csv("./data/df_train_total_ds_{}.csv".format(args.year))
+    df_test_total = pd.read_csv("./data/df_test_total_ds_{}.csv".format(args.year))
+    df_merged = pd.read_csv("./data/df_merged_ds_{}.csv".format(args.year))
     
     torch.manual_seed(args.seed)
     quanilte_levels = [0.1, 0.3, 0.5, 0.7, 0.9]
@@ -252,8 +252,8 @@ def main():
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = model
        
-    torch.save(model.state_dict(), '../assets/ds/ds_{}_{}_final.pth'.format(args.model, args.year))
-    torch.save(best_eval_model.state_dict(), '../assets/ds/ds_{}_{}_best.pth'.format(args.model, args.year))
+    torch.save(model.state_dict(), './assets/ds/ds_{}_{}_final.pth'.format(args.model, args.year))
+    torch.save(best_eval_model.state_dict(), './assets/ds/ds_{}_{}_best.pth'.format(args.model, args.year))
 
     
 if __name__ == '__main__':
