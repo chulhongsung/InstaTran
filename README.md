@@ -21,14 +21,14 @@ This repository contains the pre-release version of the dataset and Python code 
 ### 
 `pip install -r requirements.txt`
 
-## Folder
-`src`: containing source codes
+## Folders
+`src`: includes source codes
 
 `data/raw`: a directory for downloading of Han River datasets (water_data, rf_data)
 
-`data/us_lakes`: containing US lakes datasets
+`data/us_lakes`: includes US lakes datasets
 
-`asset`: containing of outputs of numerical experiments
+`asset`: includes outputs of numerical experiments
 
 ## Dataset
 
