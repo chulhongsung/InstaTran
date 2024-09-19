@@ -10,3 +10,4 @@ privacy
 *.npy
 sweep*
 *.pt
+.ipynb_checkpoints
