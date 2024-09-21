@@ -75,7 +75,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
 ## `Han River Dataset`:
-Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
+> Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
 
 ## Train InstaTran
 
