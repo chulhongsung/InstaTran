@@ -141,9 +141,9 @@ python dist_shift.py --year 2016
 ### Train DeepAR, MQRnn, TFT 
 
 ```
-python dist_shift2.py --model DeepAR --year 2016
-python dist_shift2.py --model MQRnn --year 2016
-python dist_shift2.py --model TFT --year 2016
+python dist_shift2.py --model DeepAR --year 2016 --d_model 30 --d_emb 3
+python dist_shift2.py --model MQRnn --year 2016 --d_model 5 --d_emb 1
+python dist_shift2.py --model TFT --year 2016 --d_model 30 --d_emb 5
 ```
 
 ### Train STA-LSTM, HSDSTM
