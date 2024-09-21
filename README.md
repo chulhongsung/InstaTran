@@ -34,7 +34,7 @@ If you encounter errors while installing LightGBM, you can remove`lightgbm==4.2.
 
 ## Dataset
 
-###  Han River Dataset [Link](https://www.hrfco.go.kr/web/openapiPage/openApi.do) (Open API)
+###  Han River Dataset ([Open API](https://www.hrfco.go.kr/web/openapiPage/openApi.do))
 
 - `./data/raw`: raw datasets (water_data (water levels from 2012 to 2022), rf_data (rainfall from 2012 to 2022))
 
