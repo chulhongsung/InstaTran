@@ -35,7 +35,7 @@ args = parser.parse_args()
 
 spatial_masking = args.sps == 'True'
 
-device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 def train(model, loader, criterion, optimizer, device):
     
