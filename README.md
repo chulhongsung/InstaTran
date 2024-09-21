@@ -34,12 +34,13 @@ If you encounter errors while installing LightGBM, you can remove`lightgbm==4.2.
 
 ## Dataset
 
-###  Han River Dataset ([Open API](https://www.hrfco.go.kr/web/openapiPage/openApi.do))
+###  Han River Dataset
 
+Raw datasets (water level and rainfall datasets) are obtained from [Open API](https://www.hrfco.go.kr/web/openapiPage/openApi.do).
 - `./data/raw`: raw datasets (water_data (water levels from 2012 to 2022), rf_data (rainfall from 2012 to 2022))
 
 ### Preprocess of Han River Dataset  
-Run jupyter notebook `preprocess.ipynb`
+Run jupyter notebook `preprocess.ipynb` to generate dataset (csv files) for training and evaluation with raw datasets.
 
 #### outputs
 - `df_merged.csv`
