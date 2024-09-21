@@ -178,6 +178,7 @@ def main():
                 ).float()
 
         norm_adj = adj/adj.sum(dim=-1).unsqueeze(-1)
+        norm_adj = norm_adj.to(device)
         model = HSDSTM(adj=norm_adj,                  
                        input_size=16,
                        seq_len=48,
