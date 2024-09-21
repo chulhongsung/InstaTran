@@ -100,7 +100,9 @@ python main.py
 ## Train neural-net-based benchmark models
 
 ```
-python benchmark.py --model DeepAR --n_layer 3 
+python benchmark.py --model DeepAR --n_layer 3 --d_emb 3 --d_model 30
+python benchmark.py --model MQRnn --n_layer 3 --d_emb 3 --d_model 5
+python benchmark.py --model TFT --d_emb 5 --d_model 30
 ```
 
 ### Hyperparameters
