@@ -235,7 +235,7 @@ class TemporalFusionTransformer(nn.Module):
         tfl_output = self.tfl(varphi)  # (batch_size, seq_len+tau, d_model)
         output = self.qo(tfl_output) # (batch_size, tau, num_target, quantile)
         
-        return output, decoder_weights
+        return output
 
 class DeepAR(nn.Module):
     def __init__(self, d_input, d_embedding, n_embedding, d_model, num_targets, n_layers=3, dr=0.1):
