@@ -34,13 +34,20 @@ If you encounter errors while installing LightGBM, you can remove`lightgbm==4.2.
 
 ## Dataset
 
-### Download
-Download data from one of the following links and unpack it into `./data/raw`.
-- [Han River Dataset](https://www.hrfco.go.kr/web/openapiPage/openApi.do) (Open API)
+###  Han River Dataset [Link](https://www.hrfco.go.kr/web/openapiPage/openApi.do) (Open API)
+
+- `./data/raw`: raw datasets (water_data (water levels from 2012 to 2022), rf_data (rainfall from 2012 to 2022))
 
 ### Preprocess of Han River Dataset  
 Run jupyter notebook `preprocess.ipynb`
 
+#### outputs
+- `df_merged.csv`
+- `df_merged_ds_{year}.csv`
+- `df_train_total.csv`
+- `df_train_total_ds_{year}.csv`
+- `df_test_total.csv`
+- `df_test_total_ds_{year}.csv`
 
 ### US Lake dataset
 Or you can use US lakes dataset in `./data/us_lakes`
