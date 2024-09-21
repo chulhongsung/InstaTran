@@ -34,13 +34,14 @@ This repository contains the pre-release version of the dataset and Python code 
 
 ### Download
 Download data from one of the following links and unpack it into `./data/raw`.
-- [Han River Dataset](https://dacon.io/competitions/official/235949/data) (permission required)
+- [Han River Dataset](https://www.hrfco.go.kr/web/openapiPage/openApi.do) (Open API)
 
 ### Preprocess of Han River Dataset  
 Run jupyter notebook `preprocess.ipynb`
 
+
 ### US Lake dataset
-Or you can use US lakes dataset in `./data/us_lakes` without permission.
+Or you can use US lakes dataset in `./data/us_lakes`
 
 ## With US lakes dataset:
 Change directory 
@@ -63,7 +64,7 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
-## If you download `Han River Dataset`:
+## `Han River Dataset`:
 Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
 
 ## Train InstaTran
