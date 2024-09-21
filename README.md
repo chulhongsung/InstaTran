@@ -21,6 +21,8 @@ This repository contains the pre-release version of the dataset and Python code 
 ### 
 `pip install -r requirements.txt`
 
+If you encounter errors while installing LightGBM, you can remove`lightgbm==4.2.0` and install `ligthgbm` separately. 
+
 ## Folders
 `src`: includes source codes
 
