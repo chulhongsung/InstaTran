@@ -87,8 +87,8 @@ def evaluate(model, loader, criterion, device):
     
 def main():
     
-    df_train_total = pd.read_csv("./data/df_train_total.csv")
-    df_merged = pd.read_csv("./data/df_merged.csv")
+    df_train_total = pd.read_csv("../data/df_train_total.csv")
+    df_merged = pd.read_csv("../data/df_merged.csv")
     
     train_conti_input, train_cate_input, train_future_input, train_label = generate_ts_data(df_train_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
 
@@ -159,7 +159,7 @@ def main():
 
         train(model, train_loader, criterion, optimizer, device)
     
-    torch.save(model.state_dict(), './assets/{}.pth'.format(args.model))     
+    torch.save(model.state_dict(), '../assets/{}.pth'.format(args.model))     
     
 if __name__ == '__main__':
     main()

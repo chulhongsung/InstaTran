@@ -1,8 +1,5 @@
 #%% Experiment of distribution shift 
 import torch
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
@@ -16,11 +13,10 @@ import os
 
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
 sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
-os.chdir(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
 from utils import *
 from layers import *
-from models import SpatialTemporalTransformer, InstaTran, SpatialTemporalParallelTransformer
+from models import InstaTran
 
 import argparse
 
@@ -91,9 +87,9 @@ def evaluate(model, loader, criterion, device):
     
 def main():
 
-    df_train_total = pd.read_csv("./data/df_train_total_ds_{}.csv".format(args.year))
-    df_test_total = pd.read_csv("./data/df_test_total_ds_{}.csv".format(args.year))
-    df_merged = pd.read_csv("./data/df_merged_ds_{}.csv".format(args.year))
+    df_train_total = pd.read_csv("../data/df_train_total_ds_{}.csv".format(args.year))
+    df_test_total = pd.read_csv("../data/df_test_total_ds_{}.csv".format(args.year))
+    df_merged = pd.read_csv("../data/df_merged_ds_{}.csv".format(args.year))
     
     train_conti_input, train_cate_input, train_future_input, train_label = generate_ts_data(df_train_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
     test_conti_input, test_cate_input, test_future_input, test_label = generate_ts_data(df_test_total, df_merged, input_seq_len=args.seq_len, tau=args.tau)
@@ -102,21 +98,7 @@ def main():
     
     num_targets = 1
     
-    # config = {
-    #     'seed': args.seed,
-    #     'bs': args.bs,
-    #     'tau': args.tau,
-    #     'seq_len': args.seq_len,
-    #     'epochs': args.epochs,
-    #     'lr': args.lr,
-    #     'd_model': args.d_model,
-    #     'd_emb': args.d_emb,
-    #     'dr': args.dr,
-    #     'num_targets': num_targets
-    # }
-    
     from torch.utils.data import DataLoader, TensorDataset #IterableDataset
-
         
     train_dataset = TensorDataset(torch.FloatTensor(train_conti_input), torch.LongTensor(train_cate_input), torch.LongTensor(train_future_input), torch.FloatTensor(train_label))
     test_dataset = TensorDataset(torch.FloatTensor(test_conti_input), torch.LongTensor(test_cate_input), torch.LongTensor(test_future_input), torch.FloatTensor(test_label))
@@ -148,8 +130,6 @@ def main():
                     ).float()
 
     
-    import matplotlib.pyplot as plt
-    
     instatran = InstaTran(
         d_model=args.d_model,
         d_embedding=args.d_emb,
@@ -178,38 +158,13 @@ def main():
             
             eval_loss, _, ssa_weight2, tsa_weight, dec_weights = evaluate(instatran, test_loader, qr, device)
     
-            # fig1, ax1 = plt.subplots()
-            # ax1.set_ylabel("Variables")
-            # ax1.set_xlabel("Variables")
-            # _ = ax1.matshow(ssa_weight2.squeeze().detach().cpu().numpy()) # cmap=cmap1
-            # plt.colorbar(_)
-            # fig1.tight_layout()
-
-            # fig2, ax2 = plt.subplots()
-            # ax2.set_ylabel("Time Steps")
-            # ax2.set_xlabel("Time Steps")
-            # _ = ax2.matshow(tsa_weight.squeeze().detach().cpu().numpy())
-            # plt.colorbar(_)
-            # fig2.tight_layout()
-            
-            # fig3, ax3 = plt.subplots()
-            # ax3.set_ylabel("Time Steps")
-            # ax3.set_xlabel("Time Steps")
-            # _ = ax3.matshow(dec_weights.squeeze().detach().cpu().numpy())
-            # plt.colorbar(_)
-            # fig3.tight_layout()
             
             if eval_loss.cpu().item() < tmp_val_loss:
                 tmp_val_loss = eval_loss.cpu().item()
                 best_eval_model = instatran
-            
-            # plt.clf()
-        
-        # plt.close()
-        # scheduler.step()
-       
-    torch.save(instatran.state_dict(), './assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
-    torch.save(best_eval_model.state_dict(), './assets/ds/ds_InstaTran_{}_best.pth'.format(args.year))
+                   
+    torch.save(instatran.state_dict(), '../assets/ds/ds_InstaTran_{}_final.pth'.format(args.year))        
+    torch.save(best_eval_model.state_dict(), '../assets/ds/ds_InstaTran_{}_best.pth'.format(args.year))
     
 if __name__ == '__main__':
     main()
