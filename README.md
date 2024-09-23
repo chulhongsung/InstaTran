@@ -97,7 +97,7 @@ python main.py
 /assets/InstaTran.pth
 ```
 
-## Train neural-net-based benchmark models
+### Train neural-net-based benchmark models
 
 ```
 python benchmark.py --model DeepAR --n_layer 3 --d_emb 3 --d_model 30
