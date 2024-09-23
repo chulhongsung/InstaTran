@@ -59,17 +59,17 @@ Change directory
 cd src
 ```
 
-## Train and evaluate InstaTran
+### Train and evaluate InstaTran
 
 Run jupyter notebook `us_lakes_InstaTran.ipynb`
 
-## Train and evaluate neural-net-based benchmark models
+### Train and evaluate neural-net-based benchmark models
 
 Run jupyter notebook `us_lakes_{model}.ipynb`
 - `model` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
 
 
-## Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
+### Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
 
 Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
@@ -77,7 +77,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 ## `Han River Dataset`:
 > Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
 
-## Train InstaTran
+### Train InstaTran
 
 ```
 python main.py 
@@ -110,7 +110,7 @@ python benchmark.py --model TFT --d_emb 5 --d_model 30
 - `model` : benchmark models (DeepAR, MQRnn, TFT)
 - `n_layer` : the number of LSTM layers
 
-## Train domain-specific benchmark models
+### Train domain-specific benchmark models
 
 Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
 
@@ -120,10 +120,10 @@ Use jupyter notebook `HSTSTM.ipynb` and `STA-LSTM.ipynb`
 /assets/{model}.pth
 ```
 
-## Train classical benchmark models
+### Train classical benchmark models
 Run jupyter notebook `classic_benchmark.ipynb`
 
-## Evaluate 
+### Evaluate 
 Run jupyter notebook `eval.ipynb`
 
 
@@ -159,6 +159,6 @@ python dist_shift3.py --model HSDSTM --year 2016
 
 Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
-## Evaluation
+### Evaluation
 
 Run jupyter notebook `eval_ds.ipynb`
