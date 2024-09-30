@@ -75,6 +75,17 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 > `STALSTM` : 1 minutes (Ubuntu A6000), 1 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P).
 > `HSDSTM` : 20 minutes (Ubuntu A6000), 200 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P). 
 
+Time (minutes)
+
+| Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
+| ----------| ------------------ | ---------------- | --------------------------- | 
+| DeepAR    | 1.199 | 0.121  | -0.722 |
+| MQRnn     | 0.583 | 0.274  | -0.658 | 
+| STALSTM   | 0.833 | 0.162  | -0.613 | 
+| HSDSTM    | 0.894 | 0.209  | -0.459 | 
+| TFT       | 0.820 | 0.255  | -0.817 | 
+| InstaTran | 0.747 | 0.243  | -0.882 |
+
 ### Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
 
 Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
