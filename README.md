@@ -78,7 +78,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
 | DeepAR    | 3 | 3  | 5 |
-| MQRnn     | 5 | 6  |  | 
+| MQRnn     | 5 | 6  | 10 | 
 | STALSTM   | 1 | 1  |  | 
 | HSDSTM    | 20 | 200  |  | 
 | TFT       | 45 | 40  | 196 | 
