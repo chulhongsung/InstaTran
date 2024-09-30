@@ -83,7 +83,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 | HSDSTM    | 20 | 200  | 15 | 
 | TFT       | 45 | 40  | 196 | 
 | InstaTran | 50 | 114 | 147 |
-| ML methods| 8 | 5 |    |
+| ML methods| 8 | 5 | 10 |
 
 
 ## `Han River Dataset`:
