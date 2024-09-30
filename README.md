@@ -69,6 +69,7 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 - `model` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
 
 > Time (minutes)
+
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
 | DeepAR    | 3 | 3  |  |
