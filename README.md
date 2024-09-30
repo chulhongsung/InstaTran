@@ -68,6 +68,11 @@ Run jupyter notebook `us_lakes_InstaTran.ipynb`
 Run jupyter notebook `us_lakes_{model}.ipynb`
 - `model` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
 
+### Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
+
+Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
+
+
 > Time (minutes)
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
@@ -78,10 +83,7 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 | HSDSTM    | 20 | 200  |  | 
 | TFT       | 45 | 40  | 196 | 
 | InstaTran | 50 | 114  |  |
-
-### Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
-
-Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
+| ML methods|    |  5 |    |
 
 
 ## `Han River Dataset`:
