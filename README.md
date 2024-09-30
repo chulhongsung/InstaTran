@@ -82,7 +82,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 | STALSTM   | 1 | 1  |  | 
 | HSDSTM    | 20 | 200  |  | 
 | TFT       | 45 | 40  | 196 | 
-| InstaTran | 50 | 114  |  |
+| InstaTran | 50 | 114 | 147 |
 | ML methods| 8 | 5 |    |
 
 
@@ -146,7 +146,7 @@ Run jupyter notebook `eval.ipynb`
 | MQRnn     | 3 |  |  | 
 | STALSTM   |  |   |  | 
 | HSDSTM    |  |   |  | 
-| TFT       |  |   |  | 
+| TFT       | 33 |   |  | 
 | InstaTran | 22 |   |  |
 | ML methods|  |  |    |
 
