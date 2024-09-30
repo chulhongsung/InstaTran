@@ -164,7 +164,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 Run jupyter notebook `eval_ds.ipynb`
 
 ## Reproducing Tables and Figures
-> Run saved models by authors in `assets` folder
+> Note: run saved models by authors in `assets` folder because the results depend on the device you utilzed (CPU or GPU).
 
 ### `eval.ipynb`
 - Figure 4 
