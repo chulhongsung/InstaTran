@@ -73,7 +73,7 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
 
-> Time (minutes)
+> Time (minutes) on various settings
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
