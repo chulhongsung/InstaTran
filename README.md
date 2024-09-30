@@ -145,7 +145,7 @@ Run jupyter notebook `eval.ipynb`
 | DeepAR    | 6 |  |  |
 | MQRnn     | 3 |  |  | 
 | STALSTM   | 1 |   |  | 
-| HSDSTM    |  |   |  | 
+| HSDSTM    | 3 |   |  | 
 | TFT       | 33 |   |  | 
 | InstaTran | 22 |   |  |
 | ML methods|  |  |    |
