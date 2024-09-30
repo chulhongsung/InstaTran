@@ -138,6 +138,18 @@ Run jupyter notebook `classic_benchmark.ipynb`
 ### Evaluate 
 Run jupyter notebook `eval.ipynb`
 
+> Time (minutes) on various settings
+
+| Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
+| ----------| ------------------ | ---------------- | --------------------------- | 
+| DeepAR    |  |  |  |
+| MQRnn     |  |  |  | 
+| STALSTM   |  |   |  | 
+| HSDSTM    |  |   |  | 
+| TFT       |  |   |  | 
+| InstaTran | 22 |   |  |
+| ML methods|  |  |    |
+
 
 ## Distribution-shift Scenario
 Note: This training process can be time-consuming. To save the time, the trained model are saved in the `/assets/ds/ds_{model}_{year}.pth`.
@@ -180,7 +192,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 | STALSTM   |  |   |  | 
 | HSDSTM    |  |   |  | 
 | TFT       |  |   |  | 
-| InstaTran | 22 |   |  |
+| InstaTran |  |   |  |
 | ML methods|  |  |    |
 
 
