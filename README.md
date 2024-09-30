@@ -62,12 +62,18 @@ cd src
 ### Train and evaluate InstaTran
 
 Run jupyter notebook `us_lakes_InstaTran.ipynb`
+> It took approximately 50 minutes (Ubuntu A6000 GPU), 114 minutes (Apple M2 Max).
 
 ### Train and evaluate neural-net-based benchmark models
 
 Run jupyter notebook `us_lakes_{model}.ipynb`
 - `model` : MQRnn, DeepAR, TFT, STALSTM, HSDSTM
 
+> `DeepAR` : 3 minutes (Ubuntu A6000), 3 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P).
+> `MQRnn` : 5 minutes (Ubuntu A6000), 6 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P).
+> `TFT` :  45 minutes (Ubuntu A6000), 40 minutes (Apple M2 Max CPU), 196 minutes (Window cpu Intel i5-1340P).
+> `STALSTM` : 1 minutes (Ubuntu A6000), 1 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P).
+> `HSDSTM` : 20 minutes (Ubuntu A6000), 200 minutes (Apple M2 Max CPU),  minutes (Window cpu Intel i5-1340P). 
 
 ### Train classical benchmark models (EPS, Theta, ARIMA, LightGBM)
 
