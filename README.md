@@ -80,7 +80,7 @@ Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 | DeepAR    | 3 | 3  | 5 |
 | MQRnn     | 5 | 6  | 10 | 
 | STALSTM   | 1 | 1  | 1 | 
-| HSDSTM    | 20 | 200  |  | 
+| HSDSTM    | 20 | 200  | 15 | 
 | TFT       | 45 | 40  | 196 | 
 | InstaTran | 50 | 114 | 147 |
 | ML methods| 8 | 5 |    |
