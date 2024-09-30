@@ -141,6 +141,28 @@ def generate_eval_ts_for_deng(df, label_df, input_seq_len=48, tau=12):
     
     return np.swapaxes(total_conti_input, 2, 1), total_label, past_input
 
+def generate_eval_ts_for_ding(df, label_df, input_seq_len=48, tau=12):    
+    col_labels =  ['wl_1018680'] # ['wl_1018662', 'wl_1018680', 'wl_1018683', 'wl_1019630']
+    
+    tmp_df = np.array(df.loc[df['year'] == 2021, :])
+    tmp_label_df = np.array(label_df.loc[label_df['year'] == 2021, col_labels])
+    
+    n = tmp_df.shape[0] - input_seq_len - tau 
+    
+    tmp_conti_input = tmp_df[:, 4:] # (4416, 16)
+    conti_input = np.zeros((n, input_seq_len, tmp_conti_input.shape[1]), dtype=np.float32)
+    label = np.zeros((n, tau, len(col_labels)))
+
+    past_input = np.zeros((n, input_seq_len, len(col_labels)), dtype=np.float32)
+    label = np.zeros((n, tau, len(col_labels)))
+
+    for j in range(n):
+        past_input[j, :, :] = tmp_label_df[j:(j+input_seq_len), :]/1000
+        conti_input[j, :, :] = tmp_conti_input[j:(j+input_seq_len), :]
+        label[j, :, :] = tmp_label_df[(j+input_seq_len):(j+input_seq_len+tau), :]/1000
+
+    return conti_input, label, past_input
+
 class QuantileRisk(nn.Module):
     def __init__(self, tau, quantile, num_targets, device):
         super(QuantileRisk, self).__init__()
