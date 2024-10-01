@@ -187,13 +187,13 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 3 |  |  |
-| MQRnn     | 2 |  |  | 
-| STALSTM   | 3 |   |  | 
-| HSDSTM    | 8 |   |  | 
-| TFT       | 13 |   |  | 
-| InstaTran | 30 |   |  |
-| ML methods|  |  |    |
+| DeepAR    | 4 |  |  |
+| MQRnn     | 3 |  |  | 
+| STALSTM   | 4 |   |  | 
+| HSDSTM    | 10 |   |  | 
+| TFT       | 16 |   |  | 
+| InstaTran | 36 |   |  |
+| ML methods| 30 |  |    |
 
 
 
