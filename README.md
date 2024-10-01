@@ -147,7 +147,7 @@ Run jupyter notebook `eval.ipynb`
 | STALSTM   | 1 |   |  | 
 | HSDSTM    | 3 |   |  | 
 | TFT       | 33 |   |  | 
-| InstaTran | 22 |   |  |
+| InstaTran | 22 | 158 | 236 |
 | ML methods| 15 |  |    |
 
 
