@@ -289,7 +289,6 @@ def main():
        
     # torch.save(model.state_dict(), '../assets/ds/ds_{}_{}_final.pth'.format(args.model, args.year))
     # torch.save(best_eval_model.state_dict(), '../assets/ds/ds_{}_{}_best.pth'.format(args.model, args.year))
-
     
 if __name__ == '__main__':
     main()
