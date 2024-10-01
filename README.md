@@ -190,7 +190,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 | DeepAR    | 3 |  |  |
 | MQRnn     | 2 |  |  | 
 | STALSTM   | 3 |   |  | 
-| HSDSTM    |  |   |  | 
+| HSDSTM    | 8 |   |  | 
 | TFT       | 13 |   |  | 
 | InstaTran | 30 |   |  |
 | ML methods|  |  |    |
