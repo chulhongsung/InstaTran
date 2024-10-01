@@ -146,7 +146,7 @@ Run jupyter notebook `eval.ipynb`
 | MQRnn     | 3 |  |  | 
 | STALSTM   | 1 |   |  | 
 | HSDSTM    | 3 |   |  | 
-| TFT       | 33 |   |  | 
+| TFT       | 33 |152 |  | 
 | InstaTran | 22 | 158 | 236 |
 | ML methods| 15 |  |    |
 
