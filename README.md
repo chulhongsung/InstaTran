@@ -183,7 +183,7 @@ python dist_shift3.py --model HSDSTM --year 2016
 
 Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
-> Time (minutes) for 5-years datasets on various settings
+> Time (minutes) for 6-years datasets on various settings
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
