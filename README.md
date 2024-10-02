@@ -193,7 +193,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 | HSDSTM    | 10 | 102 | 43 | 
 | TFT       | 16 | 52 | 120 | 
 | InstaTran | 36 | 141  | 220 |
-| ML methods| 30 | 13 |    |
+| ML methods| 30 | 13 | 18 |
 
 
 
