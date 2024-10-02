@@ -148,7 +148,7 @@ Run jupyter notebook `eval.ipynb`
 | HSDSTM    | 3 |  76 | 33 | 
 | TFT       | 33 |152 | 350 | 
 | InstaTran | 22 | 158 | 236 |
-| ML methods| 15 | 7 |    |
+| ML methods| 15 | 7 |  8  |
 
 
 ## Distribution-shift Scenario
