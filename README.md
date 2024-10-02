@@ -143,7 +143,7 @@ Run jupyter notebook `eval.ipynb`
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
 | DeepAR    | 6 | 21 | 33 |
-| MQRnn     | 3 | 6 |  | 
+| MQRnn     | 3 | 6 | 13 | 
 | STALSTM   | 1 | 3  |  | 
 | HSDSTM    | 3 |  76 |  | 
 | TFT       | 33 |152 | 350 | 
@@ -190,7 +190,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 | DeepAR    | 4 | 8 |  |
 | MQRnn     | 3 | 3 |  | 
 | STALSTM   | 4 |  6 |  | 
-| HSDSTM    | 10 |   |  | 
+| HSDSTM    | 10 | 102 |  | 
 | TFT       | 16 | 52 | 120 | 
 | InstaTran | 36 | 141  | 220 |
 | ML methods| 30 |  |    |
