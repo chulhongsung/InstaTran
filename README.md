@@ -142,7 +142,7 @@ Run jupyter notebook `eval.ipynb`
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 6 | 21 |  |
+| DeepAR    | 6 | 21 | 33 |
 | MQRnn     | 3 | 6 |  | 
 | STALSTM   | 1 | 3  |  | 
 | HSDSTM    | 3 |  76 |  | 
