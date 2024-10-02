@@ -146,7 +146,7 @@ Run jupyter notebook `eval.ipynb`
 | MQRnn     | 3 |  |  | 
 | STALSTM   | 1 |   |  | 
 | HSDSTM    | 3 |   |  | 
-| TFT       | 33 |152 |  | 
+| TFT       | 33 |152 | 350 | 
 | InstaTran | 22 | 158 | 236 |
 | ML methods| 15 |  |    |
 
@@ -192,7 +192,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 | STALSTM   | 4 |   |  | 
 | HSDSTM    | 10 |   |  | 
 | TFT       | 16 |   |  | 
-| InstaTran | 36 |   |  |
+| InstaTran | 36 | 141  | 220 |
 | ML methods| 30 |  |    |
 
 
