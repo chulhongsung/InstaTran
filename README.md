@@ -187,7 +187,7 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
 | Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
 | ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 4 | 8 |  |
+| DeepAR    | 4 | 8 | 13 |
 | MQRnn     | 3 | 3 |  | 
 | STALSTM   | 4 |  6 |  | 
 | HSDSTM    | 10 | 102 |  | 
