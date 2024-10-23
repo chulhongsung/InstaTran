@@ -109,6 +109,11 @@ python main.py
 /assets/InstaTran.pth
 ```
 
+### Ablation study 
+```
+python ablation.py 
+```
+
 ### Train neural-net-based benchmark models
 
 ```
