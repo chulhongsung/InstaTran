@@ -109,6 +109,18 @@ python main.py
 /assets/InstaTran.pth
 ```
 
+### Ablation study 
+```
+python ablation.py 
+```
+
+#### Saved models
+
+- `InstaTran_wo_sps.pth` (Without M_S) 
+- `InstaTran_parallel.pth` (Parallel Attention)
+- `InstaTran_w_tft_decoder.pth` (With TFT Decoder)
+- `InstaTran_wo_M_S.pth` (Appendix E)
+
 ### Train neural-net-based benchmark models
 
 ```
