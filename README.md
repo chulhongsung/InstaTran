@@ -114,6 +114,12 @@ python main.py
 python ablation.py 
 ```
 
+#### Saved models
+
+- `InstaTran_wo_sps.pth` (Without M_S)
+- `InstaTran_parallel.pth` (Parallel Attention)
+- `InstaTran_w_tft_decoder.pth ` (With TFT decoder)
+
 ### Train neural-net-based benchmark models
 
 ```
