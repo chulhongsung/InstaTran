@@ -109,7 +109,8 @@ python main.py
 /assets/InstaTran.pth
 ```
 
-### Ablation study 
+### Ablation study
+> Note: This training process can be time-consuming.
 ```
 python ablation.py 
 ```
