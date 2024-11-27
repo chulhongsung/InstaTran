@@ -72,20 +72,6 @@ Run jupyter notebook `us_lakes_{model}.ipynb`
 
 Run jupyter notebook `us_lakes_ml_benchmark.ipynb`
 
-
-> Time (minutes) on various settings
-
-| Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
-| ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 3 | 3  | 5 |
-| MQRnn     | 5 | 6  | 10 | 
-| STALSTM   | 1 | 1  | 1 | 
-| HSDSTM    | 20 | 200  | 15 | 
-| TFT       | 45 | 40  | 196 | 
-| InstaTran | 50 | 114 | 147 |
-| ML methods| 8 | 5 | 10 |
-
-
 ## `Han River Dataset`:
 > Note: This training process can be time-consuming. To save the time, the trained model  are saved in the `/assets/{model}.pth`.
 
@@ -151,19 +137,6 @@ Run jupyter notebook `classic_benchmark.ipynb`
 ### Evaluate 
 Run jupyter notebook `eval.ipynb`
 
-> Time (minutes) on various settings
-
-| Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
-| ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 6 | 21 | 33 |
-| MQRnn     | 3 | 6 | 13 | 
-| STALSTM   | 1 | 3  | 4 | 
-| HSDSTM    | 3 |  76 | 33 | 
-| TFT       | 33 |152 | 350 | 
-| InstaTran | 22 | 158 | 236 |
-| ML methods| 15 | 7 |  8  |
-
-
 ## Distribution-shift Scenario
 Note: This training process can be time-consuming. To save the time, the trained model are saved in the `/assets/ds/ds_{model}_{year}.pth`.
 - `model` : models (DeepAR, MQRnn, TFT, STALSTM, HSDSTM, instatran)
@@ -195,20 +168,6 @@ python dist_shift3.py --model HSDSTM --year 2016
 ### Train and evaluate classical benchmark models
 
 Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
-
-> Time (minutes) for 6-years datasets on various settings
-
-| Models    | A6000 GPU (Ubuntu) | M2 Max CPU (Mac) | Intel i5-1340P CPU (Window) | 
-| ----------| ------------------ | ---------------- | --------------------------- | 
-| DeepAR    | 4 | 8 | 13 |
-| MQRnn     | 3 | 3 | 7 | 
-| STALSTM   | 4 |  6 | 7 | 
-| HSDSTM    | 10 | 102 | 43 | 
-| TFT       | 16 | 52 | 120 | 
-| InstaTran | 36 | 141  | 220 |
-| ML methods| 30 | 13 | 18 |
-
-
 
 ### Evaluation
 
