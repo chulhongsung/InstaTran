@@ -173,29 +173,6 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 ### Evaluation
 
 Run jupyter notebook `eval_ds.ipynb`
-
-## Reproducing Tables and Figures
-> Note: run saved models by authors in `assets` folder because the results depend on the device you utilzed (CPU or GPU).
-
-### `eval.ipynb`
-- Figure 4 
-- Figure 5 
-- Figure 6 
-- Figure E.10 
-- Figure 7
-- Figure D.9
-
-- Table 2
-- Table 3
-- Table 5 (Deep learning based models)
-
-### `classic_benchmark.ipynb`
-- Table 5 (Classic models)
-
-#### `eval_ds.ipynb`
-- Table 6 (Deep learning based models)
-- Figure 8
-
 #### `classic_benchmark_dist_shift.ipynb`
 - Table 6 (Classic models)
 
