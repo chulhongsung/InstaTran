@@ -174,5 +174,3 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
 Run jupyter notebook `eval_ds.ipynb`
 #### `classic_benchmark_dist_shift.ipynb`
-- Table 6 (Classic models)
-
