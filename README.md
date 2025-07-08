@@ -174,3 +174,15 @@ Run jupyter notebook `classic_benchmark_dist_shift.ipynb`
 
 Run jupyter notebook `eval_ds.ipynb`
 #### `classic_benchmark_dist_shift.ipynb`
+
+
+Citation 
+```
+@article{hong2024interpretable,
+  title={Interpretable water level forecaster with spatiotemporal causal attention mechanisms},
+  author={Hong, Sungchul and Choi, Yunjin and Jeon, Jong-June},
+  journal={International Journal of Forecasting},
+  year={2024},
+  publisher={Elsevier}
+}
+```
