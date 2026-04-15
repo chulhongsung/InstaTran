@@ -178,11 +178,14 @@ Run jupyter notebook `eval_ds.ipynb`
 
 Citation 
 ```
-@article{hong2024interpretable,
+@article{hong2025interpretable,
   title={Interpretable water level forecaster with spatiotemporal causal attention mechanisms},
   author={Hong, Sungchul and Choi, Yunjin and Jeon, Jong-June},
   journal={International Journal of Forecasting},
-  year={2024},
+  volume={41},
+  number={3},
+  pages={1037--1054},
+  year={2025},
   publisher={Elsevier}
 }
 ```
